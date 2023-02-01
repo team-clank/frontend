@@ -1,16 +1,19 @@
-import { FunctionComponent } from "react";
-import Footer from "../components/Footer";
-import styles from "./SSO.module.css";
+import { FunctionComponent } from 'react';
+import Footer from '../components/Footer';
+import styles from './SSO.module.css';
+import { WalletSelector } from '@aptos-labs/wallet-adapter-ant-design';
 
-const SSO: FunctionComponent = () => {
+const SSO = ({
+  setIsSsoLogin,
+}: {
+  setIsSsoLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <address className={styles.sso}>
       <div className={styles.body}>
         <nav className={styles.nav}>
-          <img className={styles.logoIcon} alt="" src="../logo4.svg" />
-          <div className={styles.btnText} id="Address-container">
-            <div className={styles.btnname}>0xfew...og2s</div>
-          </div>
+          <img className={styles.logoIcon} alt='' src='../logo4.svg' />
+          <WalletSelector />
         </nav>
         <div className={styles.contentscontainer}>
           <div className={styles.textcontainer}>
@@ -23,11 +26,13 @@ const SSO: FunctionComponent = () => {
             </div>
           </div>
           <div className={styles.btnText1}>
-            <img className={styles.googleIcon} alt="" src="../google.svg" />
-            <b className={styles.title}>Continue with Gmail</b>
+            <img className={styles.googleIcon} alt='' src='../google.svg' />
+            <a className={styles.title} href='/'>
+              Continue with Gmail
+            </a>
           </div>
         </div>
-        <Footer subtract="../subtract.svg" />
+        <Footer subtract='../subtract.svg' />
       </div>
     </address>
   );

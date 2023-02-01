@@ -5,7 +5,7 @@ import styles from './Landing.module.css';
 import { VaultDefault } from './VaultDefault';
 import { WalletSelector } from '@aptos-labs/wallet-adapter-ant-design';
 import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
-import LimitDefaultContent from './LimitDefault';
+import SSO from './SSO';
 
 const Landing = ({
   account,
@@ -17,7 +17,7 @@ const Landing = ({
   if (account == null) {
     return LandingContent();
   } else {
-    return LimitDefaultContent({ setIsSsoLogin });
+    return SSO({ setIsSsoLogin });
   }
 };
 
