@@ -1,13 +1,17 @@
-import { FunctionComponent } from 'react';
 import Footer from '../components/Footer';
 import styles from './SSO.module.css';
 import { WalletSelector } from '@aptos-labs/wallet-adapter-ant-design';
+import { SignUpState } from '../components/AppState';
 
 const SSO = ({
-  setIsSsoLogin,
+  setSignUpState,
 }: {
-  setIsSsoLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setSignUpState: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+  const handleClick = () => {
+    setSignUpState(SignUpState.setWithdrawal);
+  };
+
   return (
     <address className={styles.sso}>
       <div className={styles.body}>
@@ -27,9 +31,9 @@ const SSO = ({
           </div>
           <div className={styles.btnText1}>
             <img className={styles.googleIcon} alt='' src='../google.svg' />
-            <a className={styles.title} href='/'>
+            <div className={styles.title} onClick={handleClick}>
               Continue with Gmail
-            </a>
+            </div>
           </div>
         </div>
         <Footer subtract='../subtract.svg' />
