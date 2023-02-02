@@ -1,18 +1,19 @@
-import { useState } from 'react';
-import { Button } from '@mui/material';
 import Footer from '../components/Footer';
 import styles from './Landing.module.css';
-import { VaultDefault } from './VaultDefault';
 import { WalletSelector } from '@aptos-labs/wallet-adapter-ant-design';
-import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
-import SSO from './SSO';
+import { LogoOnclick } from '../components/Logo';
 
 const Landing = () => {
   return (
     <main className={styles.landing} id='Landing-container'>
       <div className={styles.body}>
         <div className={styles.nav}>
-          <img className={styles.logoIcon} alt='' src='../logo.svg' />
+          <img
+            className={styles.logoIcon}
+            alt=''
+            src='../logo.svg'
+            onClick={LogoOnclick}
+          />
           <button className={styles.btncontainer} id='link-nav'>
             <div className={styles.btnText}>
               <b className={styles.btnnamet}>about</b>

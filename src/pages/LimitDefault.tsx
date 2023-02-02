@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import styles from './LimitDefault.module.css';
 import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
 import { Types } from 'aptos';
-import { state } from '../components/AppState';
 
 const LimitDefaultContent = ({
   account,

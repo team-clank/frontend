@@ -4,7 +4,6 @@ import styles from './WithdrawalAptosLimitForm.module.css';
 import { submitTransaction } from '../components/AptosClient';
 import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
 import { Types } from 'aptos';
-import { state } from '../components/AppState';
 import { useNavigate } from 'react-router-dom';
 
 const WithdrawalAptosLimitForm = ({

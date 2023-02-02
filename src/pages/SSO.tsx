@@ -1,7 +1,7 @@
 import Footer from '../components/Footer';
 import styles from './SSO.module.css';
 import { WalletSelector } from '@aptos-labs/wallet-adapter-ant-design';
-import { state } from '../components/AppState';
+import { LogoOnclick } from '../components/Logo';
 
 const SSO = ({
   setSignUpState,
@@ -12,7 +12,12 @@ const SSO = ({
     <address className={styles.sso}>
       <div className={styles.body}>
         <nav className={styles.nav}>
-          <img className={styles.logoIcon} alt='' src='../logo4.svg' />
+          <img
+            className={styles.logoIcon}
+            alt=''
+            src='../logo4.svg'
+            onClick={LogoOnclick}
+          />
           <WalletSelector />
         </nav>
         <div className={styles.contentscontainer}>
