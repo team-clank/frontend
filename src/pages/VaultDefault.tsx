@@ -8,7 +8,10 @@ import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
 import { client } from '../components/AptosClient';
 import SkeletonOption from './SkeletonOption';
 
-const VaultDefault = ({ account }: { account: AccountInfo }) => {
+const VaultDefault = ({ account }: { account: AccountInfo | null }) => {
+  if (account == null) {
+    window.location.href = '/';
+  }
   const [depositedAPT, setDepositedAPT] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   return VaultInfoContent({ depositedAPT });

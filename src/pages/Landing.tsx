@@ -7,21 +7,7 @@ import { WalletSelector } from '@aptos-labs/wallet-adapter-ant-design';
 import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
 import SSO from './SSO';
 
-const Landing = ({
-  account,
-  setIsSsoLogin,
-}: {
-  account: AccountInfo | null;
-  setIsSsoLogin: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
-  if (account == null) {
-    return LandingContent();
-  } else {
-    return SSO({ setIsSsoLogin });
-  }
-};
-
-const LandingContent = () => {
+const Landing = () => {
   return (
     <main className={styles.landing} id='Landing-container'>
       <div className={styles.body}>
