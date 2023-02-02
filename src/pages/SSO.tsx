@@ -1,17 +1,13 @@
 import Footer from '../components/Footer';
 import styles from './SSO.module.css';
 import { WalletSelector } from '@aptos-labs/wallet-adapter-ant-design';
-import { SignUpState } from '../components/AppState';
+import { state } from '../components/AppState';
 
 const SSO = ({
   setSignUpState,
 }: {
   setSignUpState: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const handleClick = () => {
-    setSignUpState(SignUpState.setWithdrawal);
-  };
-
   return (
     <address className={styles.sso}>
       <div className={styles.body}>
@@ -31,9 +27,12 @@ const SSO = ({
           </div>
           <div className={styles.btnText1}>
             <img className={styles.googleIcon} alt='' src='../google.svg' />
-            <div className={styles.title} onClick={handleClick}>
+            <a
+              className={styles.title}
+              href='https://accounts.google.com/o/oauth2/auth?scope=email&client_id=612876662130-e10opej3r5l0dggntuigu7jjhoto382l.apps.googleusercontent.com&redirect_uri=http://localhost:3000/createAcc2&response_type=code'
+            >
               Continue with Gmail
-            </div>
+            </a>
           </div>
         </div>
         <Footer subtract='../subtract.svg' />

@@ -4,19 +4,17 @@ import Footer from '../components/Footer';
 import styles from './LimitDefault.module.css';
 import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
 import { Types } from 'aptos';
-import { SignUpState } from '../components/AppState';
+import { state } from '../components/AppState';
 
 const LimitDefaultContent = ({
   account,
   signAndSubmitTransaction,
-  setSignUpState,
 }: {
   account: AccountInfo | null;
   signAndSubmitTransaction: <T extends Types.TransactionPayload, V>(
     transaction: T,
     options?: V | undefined
   ) => Promise<any>;
-  setSignUpState: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   return (
     <div className={styles.limitDefault}>
@@ -25,7 +23,6 @@ const LimitDefaultContent = ({
         <WithdrawalAptosLimitForm
           account={account}
           signAndSubmitTransaction={signAndSubmitTransaction}
-          setSignUpState={setSignUpState}
         />
         <Footer subtract='../subtract1.svg' />
       </div>

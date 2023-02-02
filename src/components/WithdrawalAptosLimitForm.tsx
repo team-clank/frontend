@@ -1,28 +1,30 @@
 import { useState } from 'react';
-import { TextField, Button, getAccordionUtilityClass } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import styles from './WithdrawalAptosLimitForm.module.css';
 import { submitTransaction } from '../components/AptosClient';
 import { AccountInfo } from '@aptos-labs/wallet-adapter-core';
 import { Types } from 'aptos';
-import { SignUpState } from '../components/AppState';
+import { state } from '../components/AppState';
+import { useNavigate } from 'react-router-dom';
 
 const WithdrawalAptosLimitForm = ({
   account,
   signAndSubmitTransaction,
-  setSignUpState,
 }: {
   account: AccountInfo | null;
   signAndSubmitTransaction: <T extends Types.TransactionPayload, V>(
     transaction: T,
     options?: V | undefined
   ) => Promise<any>;
-  setSignUpState: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const [withDrawal, setWithDrawal] = useState('');
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWithDrawal(event.target.value);
   };
+  let navigate = useNavigate();
+
   console.log(withDrawal);
+
   if (withDrawal == '') {
     return (
       <div className={styles.contentscontainer}>
@@ -84,7 +86,7 @@ const WithdrawalAptosLimitForm = ({
             signAndSubmitTransaction,
             payload,
           });
-          setSignUpState(SignUpState.setSubscribe);
+          navigate('/subscribe');
         }}
       >
         Confirm

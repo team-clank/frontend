@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FormControlLabel, Checkbox, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import styles from './SecurityAlertForm.module.css';
-import { SignUpState } from './AppState';
+import { state } from './AppState';
 
 const SecurityAlertForm = ({
   setSignUpState,
@@ -65,7 +65,7 @@ const ButtonContainer = ({
   setSignUpState: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const handleClick = () => {
-    setSignUpState(SignUpState.isLoading);
+    setSignUpState(state.isLoading);
   };
 
   if (disabled) {
